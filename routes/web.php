@@ -22,22 +22,23 @@ Route::get('index', [
     'uses' => 'PageController@getIndex'
 ]);
 
-// Route::get('login', [
-//     'as' => 'login',
-//     'uses' => 'PageController@getLogin'
-// ]);
-// Route::get('shop', [
-//     'as' => 'shop',
-//     'uses' => 'PageController@geShop'
-// ]);
-// Route::get('detail', [
-//     'as' => 'detail',
-//     'uses' => 'PageController@getDetail'
-// ]);
-// Route::get('contact', [
-//     'as' => 'contact',
-//     'uses' => 'PageController@getContact'
-// ]);
+Route::get('login', [
+    'as' => 'login',
+    'uses' => 'PageController@getLogin'
+]);
+Route::get('shop', [
+    'as' => 'shop',
+    'uses' => 'PageController@geShop'
+]);
+Route::get('detail', [
+    'as' => 'detail',
+    'uses' => 'PageController@getDetail'
+]);
+Route::get('contact', [
+    'as' => 'contact',
+    'uses' => 'PageController@getContact'
+]);
+
 use Illuminate\Support\Facades\Schema;
 
 Route::get('database', function () {
