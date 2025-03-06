@@ -12,7 +12,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('bills', function (Blueprint $table) {
-            $table->id();
+            $table->id(); // Mặc định là unsignedBigInteger
             $table->foreignId('id_customer')->constrained('customers')->onDelete('cascade');
             $table->date('date_order');
             $table->double('total');
@@ -21,6 +21,8 @@ return new class extends Migration
             $table->timestamps();
         });
     }
+
+
 
 
     /**

@@ -9,18 +9,20 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->increments('id');  // auto-incrementing unsigned integer
-            $table->string('name');
-            $table->integer('price');
-            $table->string('img');
-            $table->unsignedInteger('cate_id'); // Đảm bảo unsigned để phù hợp với categories.id
-            $table->foreign('cate_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->id(); // Mặc định là unsignedBigInteger
+            $table->string('name', 100);
+            $table->text('description')->nullable();
+            $table->float('unit_price');
+            $table->float('promotion_price')->nullable();
+            $table->string('image', 255);
+            $table->string('unit', 25);
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
