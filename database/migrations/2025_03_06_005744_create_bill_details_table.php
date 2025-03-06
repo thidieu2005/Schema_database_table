@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('bill_details', function (Blueprint $table) {
             $table->id();
-            $table->string('full_name', 255);
-            $table->string('email', 255)->unique();
-            $table->string('password', 255);
-            $table->string('remember_token', 100)->nullable();
+            $table->foreignId('id_bill')->constrained('bills')->onDelete('cascade');
+            $table->foreignId('id_product')->constrained('products')->onDelete('cascade');
+            $table->integer('quantity');
+            $table->double('unit_price');
             $table->timestamps();
         });
     }
+
+
 
 
     /**
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('bill_details');
     }
 };
